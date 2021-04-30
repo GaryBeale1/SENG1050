@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Businesses[
+<!ELEMENT Businesses (Register+)>
+<!ELEMENT Register (Business_Details, In_Home_Services, Contact_Details)>
+<!ELEMENT Business_Details (Service_Type,Business_Name,Business_Logo?,Pictures+,URL,Business_Description,Workers*,Previous_Jobs*,Prerequisites*)>
+<!ELEMENT Service_Type (#PCDATA)>
+<!ELEMENT Business_Name (#PCDATA)>
+<!ELEMENT Business_Logo (#PCDATA)>
+<!ELEMENT Pictures (#PCDATA)>
+<!ELEMENT URL (#PCDATA)>
+<!ELEMENT Business_Description (#PCDATA)>
+<!ELEMENT Workers (#PCDATA)>
+<!ELEMENT Previous_Jobs (#PCDATA)>
+<!ELEMENT Prerequisites (#PCDATA)>
+
+<!ELEMENT In_Home_Services (Minimum_Fee, Hourly_Rate)>
+<!ELEMENT Minimum_Fee (#PCDATA)>
+<!ELEMENT Hourly_Rate (#PCDATA)>
+
+<!ELEMENT Contact_Details (Address,Opening_Hours,Phone_Number+)>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT Opening_Hours (#PCDATA)>
+<!ELEMENT Phone_Number (#PCDATA)>
+
+<!ATTLIST Address state (NSW|QLD|TAS|NT|ACT|WA|VIC|SA) #REQUIRED>
+
+<!ENTITY CL "Cleaning">
+<!ENTITY LG "Landscaping_And_Gardening">
+]>
+
+<Businesses>
+    <Register>
+        <Business_Details>
+            <Service_Type></Service_Type>
+            <Business_Name></Business_Name>
+            <Business_Logo></Business_Logo>
+            <Pictures></Pictures>
+            <URL></URL>
+            <Business_Description></Business_Description>
+            <Workers></Workers>
+            <Previous_Jobs></Previous_Jobs>
+            <Prerequisites></Prerequisites>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee></Minimum_Fee>
+            <Hourly_Rate></Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="NSW"></Address>
+            <Opening_Hours></Opening_Hours>
+            <Phone_Number></Phone_Number>
+
+        </Contact_Details>
+    </Register>
+</Businesses>

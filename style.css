@@ -1,0 +1,52 @@
+/*
+Website created by:
+Gary Beale c3328065
+25/10/2019
+*/
+
+/*The first scetion of the body attributes is dedicated to positioning the background image correctly*/
+body { background-image:url(images/Background.jpg); background-size: cover; background-repeat: no-repeat;
+	background-position: left top;
+
+	/*This second half is used to format the information on the page, such as creating a margin and setting the font*/
+	margin:1cm; margin-right: 1.5cm; background-attachment: fixed; color:black;
+	font-family:"Comic Sans MS", cursive, sans-serif; }
+
+/*These classes are the formatting for the navigation bar at the top of the page*/
+.centermiddle { text-align: center;margin: auto;width: 7%; float:right; }
+.topnav a { text-align: center; padding: 20px 20px; font-size: 20px; }
+.topnav { position: relative; overflow: hidden; text-align: center; }
+
+/*This intro class styles the intro paragraph and header within the intro div*/
+#home { border-style: double; margin-bottom: 20px; margin-top: 20px; padding-left: 10px; text-align: center; }
+p.intro { font-size: 110%; }
+
+.row { display: flex; }
+
+.column { flex: 50%; padding: 10px;	text-align: center; }
+
+/*This .main class is to format the main unordered list and to not affect the .nav class with an overall style*/
+li.main { margin-bottom: 20px; }
+
+/*These lines are just setting the various heading sizes and alignments*/
+h1 { text-align: center; text-shadow:2px 2px #FF00FF; text-transform: uppercase; }
+h2 { text-align: center; text-decoration: underline; text-transform: uppercase; }
+hr { text-align: center; color:navy }
+p  { font-size: 17px }
+ul { font-size: 19px }
+span { background-color: pink }
+
+/*This sets the colours for links, before, during and after they are clicked, and the size they become if someone hovers 
+the mouse over them*/
+a:link { color: black }
+a:visited { color: navy }
+a:active { color: red }
+
+.enlarge:hover, a.enlarge:active { font-size: 135%; }
+
+/*Here the style for the images within the page is defined, with a border being assigned and the location of the images being stated*/
+img { border-style: double; float: left; padding: 0.5em; margin-bottom: 20px  }
+img.centre { float: none; }
+
+address { text-align: right; font-size: small;}
+.conditions { text-align: left; font-size: small; }

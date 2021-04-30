@@ -1,0 +1,303 @@
+<!-- 
+Website created by:
+Gary Beale c3328065
+25/10/2019
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Register</title>
+
+	<script type="text/javascript">
+		//This is where the java scripts are written, in the head of the document and in this case it is only a form validation script
+		function validateForm() 
+		{
+			// This is where all the variables are set for the script, the first 3 are regex patterns to check other variables against in order to make sure they fit the parameters. The last 6 variables are set by getting the value of what the user has inputed into certain area fields
+			var pattern = /^\d+(\.\d+)?$/;
+			var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			var money = /^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/;
+			var a = window.document.form.firstname.value;
+			var b = window.document.form.lastname.value;
+			var c = window.document.form.description.value;
+			var d = window.document.form.address.value;
+			var e = window.document.form.BType.value;
+			var f = window.document.form.IfOther.value;
+
+			//This is where the variables are tested against empty fields and if they are equal it tells the user to please input a value into the area. this runs as an if else test, running through each variable one by one and testing, if one is true then it moves onto the next
+
+			// This first one check if there is anything in the first 2 textboxes, if there is then it will continue otherwise it will alert the user
+			if (a == ""||b == "")
+			{
+				alert("Please Enter Both Names");
+				return false;
+			}
+			// Here is where the script checks that 1 of the 3 buttons are on before continuing
+			else if(!(document.getElementById('male').checked)&&
+				!(document.getElementById('female').checked)&&
+				!(document.getElementById('othergender').checked))
+			{
+				alert("Please Select Gender");
+				return false;
+			}
+			// The third validation preformed here calls the regex pattern of email and compares it to the provided email. If they match it will continue otherwise it will alert the user
+			else if (!email.test(document.getElementById("email").value))
+			{
+				alert("Please Enter Valid Address");
+				return false;
+			}
+			else if (!pattern.test(document.getElementById("phone").value))
+			{
+				alert("Please enter phone number");
+				return false;
+			}
+			// Here the script checks for if the other option is selected, and if it is it will require an input in the 'please describe other' field
+			else if ((e == "Other")&&(f == ""))
+			{
+				alert("Please State Other");
+				return false;
+			}
+			else if (c == "")
+			{
+				alert("Please Enter Business Description");
+				return false;
+			}
+			// This rather large chunk of code just check to see if any checkboxes have been selected and if none have been then it will alert the user
+			else if(!(document.getElementById('Mondays').checked)&&
+				!(document.getElementById('Tuesdays').checked)&&
+				!(document.getElementById('Wednesdays').checked)&&
+				!(document.getElementById('Thursdays').checked)&&
+				!(document.getElementById('Fridays').checked)&&
+				!(document.getElementById('Saturdays').checked)&&
+				!(document.getElementById('Sundays').checked))
+			{
+				alert("Please Select At Least 1 Workday");
+				return false;
+			}
+			else if (!money.test(document.getElementById("callout").value))
+			{
+				alert("Please Enter Valid Call Out Price");
+				return false;
+			}
+			else if (!money.test(document.getElementById("rate").value))
+			{
+				alert("Please Enter Valid Hourly Rate");
+				return false;
+			}
+			// If all criteria are met then the form will return true
+			else
+			{
+				return true;
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+	<header>
+		<h1>Service U</h1>
+		<div class="topnav">
+			<a class="enlarge centremiddle" href="index.html">Home</a>
+			<a class="enlarge centremiddle" href="cleaning.xml">Cleaning Services</a>
+			<a class="enlarge centremiddle" href="construction.html">Remidal Massage</a>
+			<a class="enlarge centremiddle" href="landscaping.xml">Landscaping and Garden Services</a>
+			<a class="enlarge centremiddle" href="construction.html">Interior Decorating</a>
+			<a class="enlarge centremiddle" href="construction.html">Physical Training</a>
+			<a class="enlarge centremiddle" href="register.html">Register</a>
+		</div>
+	</header>
+
+	<h1 style="text-shadow: none; text-align: left;">Register Your Business</h1>
+
+	<!-- This is the form that takes the inputs from the user and submits them -->
+	<form name="form" method="get" action= "http://jkorpela.fi/cgi-bin/echo.cgi">
+		<!-- This fieldset divides the information up to make it easier on the eye and easier to fill out -->
+		<fieldset>
+			<legend>Personal Information</legend>
+			<!-- These first 3 types are all simple text boxes where the user can input plain text, with the email validated as correct by the js validation -->
+			<br>
+			<label for="firstname">First Name</label>
+			<input type="text" name="firstname" placeholder="First Name Only" id="firstname">
+			<br>
+			<br>
+
+			<label for="lastname">Last Name</label>
+			<input type="text" name="lastname" placeholder="Last Name Only" id="lastname">
+			<br>
+			<br>
+
+			<label for="gender">Gender</label>
+			<input type="radio" name="gender" value="male" id="male"> Male
+			<input type="radio" name="gender" value="female" id="female"> Female
+			<input type="radio" name="gender" value="other" id="othergender"> Other
+			<br>
+			<br>
+
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email">
+			<br>
+			<br>
+
+			<!-- This is an option type where the user has a choice of given options -->
+			<label for="AgeRange">Age Range</label>
+			<select name="Age Range" id="AgeRange">
+				<option value="under20">Under 20</option>
+				<option value="20-30">20-30</option>
+				<option value="31-40">31-40</option>
+				<option value="41-50">41-50</option>
+				<option value="51-60">51-60</option>
+				<option value="Over60">Over 60</option>
+			</select>
+			<br>
+			<br>
+			
+			<!-- A textarea is similar to just text, but can be adjusted in size and will scroll when filled compared to a plain text area that will wrap -->
+			<label for="address">Address</label>
+			<textarea rows="2" name="address" id="address"></textarea>
+			<br>
+			<br>
+
+			<!-- This is another option, as described previously -->
+			<label for="state">State</label>
+			<select name="State" id="state">
+				<option value="NSW">NSW</option>
+				<option value="VIC">VIC</option>
+				<option value="TAS">TAS</option>
+				<option value="SA">SA</option>
+				<option value="WA">WA</option>
+				<option value="NT">NT</option>
+				<option value="QLD">QLD</option>
+				<option value="ACT">ACT</option>
+			</select>
+			<br>
+			<br>
+
+			<!-- Tel type is similar to text but will only take integer inputs if set to required, which it is not as the js script will check for required -->
+			<label for="phone">Phone Number</label>
+			<input type="tel" name="phonenumber" id="phone">
+			<br>
+			<br>
+
+		</fieldset>
+		<!-- This is the second feildset containing the main business details -->
+		<fieldset>
+			<legend>Business Details</legend>
+			<br>
+			<label for="BType">Business Type</label>
+			<select name="BType" id="BType">
+				<option value="Clean">Cleaning</option>
+				<option value="L&G">Landscaping and Gardening</option>
+				<option value="Train">Physical Trainer</option>
+				<option value="Decorator">Interior Decorating</option>
+				<option value="Massage">Remedial Massage</option>
+				<option value="Other">Other</option>
+			</select>
+			<br>
+			<br>
+			<label for="IfOther">If other please specify</label>
+			<textarea rows="1" name="IfOther" id="IfOther"></textarea>
+			<br>
+			<br>
+
+			<label for="description">Business Description</label>
+			<textarea rows="3" name="description" id="description"></textarea>
+			<br>
+			<br>
+
+			<!-- Here are the the first use of checkboxes within the form, where more than 1 can be checked at the same time -->
+			<p>Avalible Work Days</p>
+			<input type="checkbox" name="Mondays" id="Mondays">
+			<label for="Mondays">Monday</label>
+			<input type="checkbox" name="Tuesdays" id="Tuesdays">
+			<label for="Tuesdays">Tueday</label>
+			<input type="checkbox" name="Wednesdays" id="Wednesdays">
+			<label for="Wednesdays">Wednesday</label>
+			<input type="checkbox" name="Thursdays" id="Thursdays">
+			<label for="Thursdays">Thursday</label>
+			<input type="checkbox" name="Fridays" id="Fridays">
+			<label for="Fridays">Friday</label>
+			<input type="checkbox" name="Saturdays" id="Saturdays">
+			<label for="Saturdays">Saturday</label>
+			<input type="checkbox" name="Sundays" id="Sundays">
+			<label for="Sundays">Sunday</label>
+			<br>
+			<br>
+
+			<!-- Here the input is a time and is displayed in a box with limited inputs -->
+			<label for="start">Open Time</label>
+			<input type="time" id="start" name="start">
+			<br>
+			<br>
+
+			<label for="stop">Close Time</label>
+			<input type="time" id="stop" name="stop">
+			<br>
+			<br>
+
+			<label for="callout">Call Out Price</label>
+			<input type="text" name="callout" id="callout">
+			<br>
+			<br>
+
+			<label for="rate">Hourly Rate</label>
+			<input type="text" name="rate" id="rate">
+			<br>
+			<br>
+
+			<label for="workers">Workers</label>
+			<select name="workers" id="workers">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5+">5+</option>
+			</select>
+			<br>
+			<br>
+
+			<label for="description">Previous Job(s)</label>
+			<textarea rows="3" name="previous" id="previous"></textarea>
+			<br>
+			<br>
+
+			<label for="description">Prerequisites</label>
+			<textarea rows="3" name="pre" id="pre"></textarea>
+			<br>
+			<br>
+
+		</fieldset>
+		<br>
+
+		<!-- These are the 2 buttons at the end of the form, one to reset the form and one to run the js validation script, which if successful will return true and will send the form -->
+		<input type="submit" value="Submit" onClick="return validateForm()"> 
+		<input type="reset" value="Reset">
+	</form>
+
+	<hr>
+
+	<ul style="float:left; font-size: small;list-style-type: none;">
+		<li>
+			<em><a href="privacy.html">Privacy Policy</a></em>
+		</li>
+		<li>
+			<em><a href="terms.html">Terms & Conditions</a></em>
+		</li>
+		<li>
+			<em><a href="about.html">About Us</a></em>
+		</li>
+		<li>
+			<em><a href="contact.html">Contact Us</a></em>
+		</li>
+	</ul>
+
+	<address>
+		<a href="https://www.w3schools.com/html/default.asp">Website built by:</a>
+		<br>
+		Gary Beale
+		<br>
+		c3328065
+	</address>
+
+</body>

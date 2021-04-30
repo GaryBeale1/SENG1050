@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt.xslt"?>
+<!DOCTYPE Businesses[
+<!ELEMENT Businesses (Register+)>
+<!ELEMENT Register (Business_Details, In_Home_Services, Contact_Details)>
+<!ELEMENT Business_Details (Service_Type,Business_Name,Business_Logo?,Pictures+,URL,Business_Description,Workers*,Previous_Jobs*,Prerequisites*)>
+<!ELEMENT Service_Type (#PCDATA)>
+<!ELEMENT Business_Name (#PCDATA)>
+<!ELEMENT Business_Logo (#PCDATA)>
+<!ELEMENT Pictures (#PCDATA)>
+<!ELEMENT URL (#PCDATA)>
+<!ELEMENT Business_Description (#PCDATA)>
+<!ELEMENT Workers (#PCDATA)>
+<!ELEMENT Previous_Jobs (#PCDATA)>
+<!ELEMENT Prerequisites (#PCDATA)>
+
+<!ELEMENT In_Home_Services (Minimum_Fee, Hourly_Rate)>
+<!ELEMENT Minimum_Fee (#PCDATA)>
+<!ELEMENT Hourly_Rate (#PCDATA)>
+
+<!ELEMENT Contact_Details (Address,Opening_Hours,Phone_Number+)>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT Opening_Hours (#PCDATA)>
+<!ELEMENT Phone_Number (#PCDATA)>
+
+<!ATTLIST Address state (NSW|QLD|TAS|NT|ACT|WA|VIC|SA) #REQUIRED>
+
+<!ENTITY CL "Cleaning">
+<!ENTITY LG "Landscaping_And_Gardening">
+]>
+
+<Businesses>
+    <Register>
+        <Business_Details> 
+            <Service_Type>&CL;</Service_Type>
+            <Business_Name>Murray's Mops</Business_Name>
+            <Pictures>images/mop.jpg</Pictures>
+            <Pictures>images/wetfloor.jpg</Pictures>
+            <URL>www.murraysmops.com.au</URL>
+            <Business_Description>
+                We will clean any hard floors, including but not limited to wood, tile, marble and granite
+            </Business_Description>
+            <Workers>Nick Murray</Workers>
+            <Previous_Jobs>Cleaned Buckingham Palace</Previous_Jobs>
+            <Prerequisites>Must be hard floors</Prerequisites>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>50</Minimum_Fee>
+            <Hourly_Rate>25</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="QLD">52 Golden Ave, Point Clare</Address>
+            <Opening_Hours>9:00am-5:00pm</Opening_Hours>
+            <Phone_Number>0427819326</Phone_Number>
+        </Contact_Details>
+    </Register>
+
+    <Register>
+        <Business_Details> 
+            <Service_Type>&CL;</Service_Type>
+            <Business_Name>Vaccums R Us</Business_Name>
+            <Business_Logo>images/vaccumsrusLogo.png</Business_Logo>
+            <Pictures>images/vaccum.jpeg</Pictures>
+            <URL>www.vaccumsrus.com</URL>
+            <Business_Description>Can vaccum any floors, carpets or not.</Business_Description>
+            <Previous_Jobs>Cleaned Mum's house once</Previous_Jobs>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>10</Minimum_Fee>
+            <Hourly_Rate>30</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="VIC">71 Grove St Green Point</Address>
+            <Opening_Hours>7:00am-7:00pm</Opening_Hours>
+            <Phone_Number>0243246036</Phone_Number>
+        </Contact_Details>
+    </Register>
+
+    <Register>
+        <Business_Details> 
+            <Service_Type>&CL;</Service_Type>
+            <Business_Name>Khalid's Cleaning Crew</Business_Name>
+            <Business_Logo>images/KhalidsCleaningCrewLogo.png</Business_Logo>
+            <Pictures>images/clean.jpg</Pictures>
+            <URL>www.kcc.com</URL>
+            <Business_Description>We clean everything, no exceptions</Business_Description>
+            <Workers>Khalid</Workers>
+            <Previous_Jobs>Worked at KFC</Previous_Jobs>
+            <Previous_Jobs>Once delivered for newspapers</Previous_Jobs>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>70</Minimum_Fee>
+            <Hourly_Rate>22.5</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="TAS">37 Deklan Rd Buff Point</Address>
+            <Opening_Hours>9:00am-3:00pm</Opening_Hours>
+            <Phone_Number>0272950247</Phone_Number>
+            <Phone_Number>0428502852</Phone_Number>
+        </Contact_Details>
+    </Register>
+
+</Businesses>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt.xslt"?>
+<!DOCTYPE Businesses[
+<!ELEMENT Businesses (Register+)>
+<!ELEMENT Register (Business_Details, In_Home_Services, Contact_Details)>
+<!ELEMENT Business_Details (Service_Type,Business_Name,Business_Logo?,Pictures+,URL,Business_Description,Workers*,Previous_Jobs*,Prerequisites*)>
+<!ELEMENT Service_Type (#PCDATA)>
+<!ELEMENT Business_Name (#PCDATA)>
+<!ELEMENT Business_Logo (#PCDATA)>
+<!ELEMENT Pictures (#PCDATA)>
+<!ELEMENT URL (#PCDATA)>
+<!ELEMENT Business_Description (#PCDATA)>
+<!ELEMENT Workers (#PCDATA)>
+<!ELEMENT Previous_Jobs (#PCDATA)>
+<!ELEMENT Prerequisites (#PCDATA)>
+
+<!ELEMENT In_Home_Services (Minimum_Fee, Hourly_Rate)>
+<!ELEMENT Minimum_Fee (#PCDATA)>
+<!ELEMENT Hourly_Rate (#PCDATA)>
+
+<!ELEMENT Contact_Details (Address,Opening_Hours,Phone_Number+)>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT Opening_Hours (#PCDATA)>
+<!ELEMENT Phone_Number (#PCDATA)>
+
+<!ATTLIST Address state (NSW|QLD|TAS|NT|ACT|WA|VIC|SA) #REQUIRED>
+
+<!ENTITY CL "Cleaning">
+<!ENTITY LG "Landscaping And Gardening">
+]>
+
+<Businesses>
+    <Register>
+        <Business_Details>
+            <Service_Type>&LG;</Service_Type>
+            <Business_Name>Gary's Gardens</Business_Name>
+            <Business_Logo>images/GarysGardenLogo.png</Business_Logo>
+            <Pictures>images/garden.jpg</Pictures>
+            <URL>www.ggardens.com.com.au</URL>
+            <Business_Description>
+                All garden work is possible at Gary's Gardens, mowing to planting, and everything inbetween
+            </Business_Description>
+            <Workers>Gary Beale</Workers>
+            <Previous_Jobs>Have cut my own lawn once before</Previous_Jobs>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>40</Minimum_Fee>
+            <Hourly_Rate>30</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="NSW">61 Bradys Gully Rd North Gosford</Address>
+            <Opening_Hours>10:00am-2:00pm</Opening_Hours>
+            <Phone_Number>0432104205</Phone_Number>
+            <Phone_Number>0318481824</Phone_Number>
+            <Phone_Number>0258293582</Phone_Number>
+        </Contact_Details>
+    </Register>
+
+        <Register>
+        <Business_Details>
+            <Service_Type>&LG;</Service_Type>
+            <Business_Name>Grassy Glenn</Business_Name>
+            <Pictures>images/grass1.jpg</Pictures>
+            <Pictures>images/grass2.jpg</Pictures>
+            <URL>www.glenngrass.com</URL>
+            <Business_Description>We don't take reviews, we let the results do the talking.</Business_Description>
+            <Workers>Glenn Tilley</Workers>
+            <Workers>Grant Nigel</Workers>
+            <Prerequisites>Must be hard job, we don't do small jobs</Prerequisites>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>50</Minimum_Fee>
+            <Hourly_Rate>36.50</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="ACT">62 Bradys Gully Rd North Gosford</Address>
+            <Opening_Hours>5:00am-6:00pm</Opening_Hours>
+            <Phone_Number>0414716699</Phone_Number>
+        </Contact_Details>
+    </Register>
+
+        <Register>
+        <Business_Details>
+            <Service_Type>&LG;</Service_Type>
+            <Business_Name>Larry's land</Business_Name>
+            <Pictures>images/dirt.jpg</Pictures>
+            <URL>www.larryland.com.au</URL>
+            <Business_Description>We can turn a bad garden into an alright garden.</Business_Description>
+        </Business_Details>
+
+        <In_Home_Services>
+            <Minimum_Fee>12</Minimum_Fee>
+            <Hourly_Rate>5.50</Hourly_Rate>
+        </In_Home_Services>
+        
+        <Contact_Details>
+            <Address state="NT">41 Carter Ave Calabasas</Address>
+            <Opening_Hours>9:00am-9:00pm</Opening_Hours>
+            <Phone_Number>1300655506</Phone_Number>
+        </Contact_Details>
+    </Register>
+</Businesses>
